@@ -159,6 +159,11 @@
             50% { transform: translate(-50%, -50%) scale(1.4); }
         }
 
+        .hero::before,
+        .hero::after {
+            pointer-events: none; /* Füge das hinzu! */
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -201,6 +206,10 @@
             animation: pulse 5s ease-in-out infinite reverse;
         }
 
+        .hero .subtitle::after {
+            pointer-events: none;
+        }
+
         .hero .subtitle {
             font-size: 1.5rem;
             color: var(--text-secondary);
@@ -228,6 +237,8 @@
         }
 
         .cta-button {
+            position: relative;
+            z-index: 20;
             display: inline-block;
             padding: 1rem 2rem;
             background: var(--accent-cyan);
@@ -1146,7 +1157,8 @@
     <footer>
         <p></p>
     </footer>
-
+<button id="scrollTop"
+    style="display:none; position:fixed; bottom:20px; right:20px; z-index:999; background:var(--accent-cyan); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; font-size:24px;">↑</button>
     <script>
          // Mobile Menu Toggle
         const burger = document.querySelector('.burger');
@@ -1211,6 +1223,16 @@
                 }
             });
         });
+
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
+
+   
 </body>
 </html>
