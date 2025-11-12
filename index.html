@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcel v. d. Warth - Backend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0f0f23;
+            --bg-card: #1a1a2e;
+            --accent: #00d4ff;
+            --accent-secondary: #ff006e;
+            --accent-tertiary: #8338ec;
+            --accent-green: #00ff87;
+            --accent-cyan: #00d4ff;
+            --accent-violet: #c026d3;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --border: #2d2d44;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: 1001;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+         /* Burger Menu */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .burger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 30%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 60%;
+            right: 20%;
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, 
+                var(--accent-green) 0%, 
+                var(--accent-cyan) 20%, 
+                var(--accent-tertiary) 60%, 
+                var(--accent-violet) 80%,
+                var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% auto;
+            animation: gradientShift 8s linear infinite;
+        }
+
+
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+
+        .hero .subtitle::after {
+           content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 135, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            right: -40%;
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, 
+                var(--accent-secondary) 0%, 
+                var(--accent-cyan) 20%, 
+                var(--accent-tertiary) 60%, 
+                var(--accent-violet) 80%,
+                var(--accent-secondary) 100%
+                );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s linear infinite;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            animation: gradientShift 8s linear infinite;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-green), var(--accent-secondary), var(--accent-tertiary), var(--accent));
+            background-size: 200% auto;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+
+        .stat-card:nth-child(1) .stat-number { color: var(--accent); }
+        .stat-card:nth-child(2) .stat-number { color: var(--accent-secondary); }
+        .stat-card:nth-child(3) .stat-number { color: var(--accent-tertiary); }
+        .stat-card:nth-child(4) .stat-number { color: var(--accent-green); }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+
+        /* Expectation */
+        .section-intro {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 2rem auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .expectations-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .expectation-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .expectation-column.positive h3 {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .expectation-column.negative h3 {
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .expectation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .expectation-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expectation-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            transition: width 0.3s;
+        }
+
+        .expectation-column.positive .expectation-item::before {
+            background: linear-gradient(180deg, var(--accent-green), var(--accent-cyan));
+        }
+
+        .expectation-column.negative .expectation-item::before {
+            background: linear-gradient(180deg, var(--accent-secondary), var(--accent-violet));
+        }
+
+        .expectation-item:hover::before {
+            width: 6px;
+        }
+
+        .expectation-item:hover {
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .expectation-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .expectation-column.positive .expectation-icon {
+            color: var(--accent-green);
+        }
+
+        .expectation-column.negative .expectation-icon {
+            color: var(--accent-secondary);
+        }
+
+        .expectation-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+        }
+
+        .expectation-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .expectation-column.positive .highlight {
+            background: rgba(0, 255, 135, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+        }
+
+        .expectation-column.negative .highlight {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-secondary);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px var(--accent);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-category:nth-child(1) h3 { color: var(--accent); }
+        .skill-category:nth-child(2) h3 { color: var(--accent-secondary); }
+        .skill-category:nth-child(3) h3 { color: var(--accent-tertiary); }
+        .skill-category:nth-child(4) h3 { color: var(--accent-green); }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .skill-tag.primary {
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid var(--accent);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-secondary);
+            box-shadow: 0 10px 40px var(--accent-secondary);
+        }
+
+        .project-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+             transform: translateY(-5px);
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 40px var(--accent-green);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 968px) {
+            .expectations-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .burger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(10, 14, 26, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: right 0.4s ease;
+                border-left: 1px solid var(--border);
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                opacity: 0;
+                transform: translateX(50px);
+                transition: all 0.3s ease;
+            }
+
+            nav ul.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+            nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+            nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+            nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
+            nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
+
+            nav a {
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+             .expectation-column h3 {
+                font-size: 1.5rem;
+            }
+
+            .section-intro {
+                font-size: 1rem;
+            }
+
+            .projects-grid,
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">&lt;/&gt;</div>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#expectations">Erwartungen</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projekte</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Marcel v. d. Warth</h1>
+            <p class="subtitle">Backend-Focused Full Stack Developer</p>
+            <p class="description">
+                Spezialisiert auf skalierbare Backend-Architekturen, APIs und Datenbanken. 
+                Mit Full Stack Erfahrung, aber einer Leidenschaft für serverseitige Entwicklung.
+            </p>
+            <a href="#contact" class="cta-button">Kontakt aufnehmen</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Über mich</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Ich bin Full Stack Developer mit klarer Präferenz für Backend-Entwicklung. Besonders gerne arbeite ich an
+                    Datenbankdesigns, performanten Abfragen und der Analyse von Datenstrukturen.
+                    Ich entwickle APIs, die sauber konzipiert, effizient und wartbar sind – immer mit dem Ziel, robuste und skalierbare
+                    Systeme zu schaffen.
+                </p>
+                <p>
+                    Frontend kann ich, aber ehrlich gesagt: Wenn ich es selbst gestalten würde, sähe es wahrscheinlich aus wie aus den
+                    2000ern. Am wohlsten fühle ich mich im Backend – dort, wo Logik, Performance und saubere Architektur zählen.
+                </p>
+                <p>
+                    Ich suche nach einer Position, in der ich mich auf die serverseitige Entwicklung konzentrieren
+                    und meine Full-Stack-Erfahrung als zusätzlichen Mehrwert einbringen kann.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">1+</span>
+                    <span class="stat-label">Jahre Erfahrung</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Projekte</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Backend Focus</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Einsatzbereit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expectations Section -->
+    <section id="expectations">
+        <h2>Was ich suche</h2>
+        <p class="section-intro">
+            Transparenz ist mir wichtig. Hier findest du meine Erwartungen und Deal-Breakers –
+            damit wir beide schnell wissen, ob es passt.
+        </p>
+    
+        <div class="expectations-container">
+            <!-- Positive Expectations -->
+            <div class="expectation-column positive">
+                <h3>✨ Meine Erwartungen</h3>
+                <div class="expectation-list">
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⚖️</div>
+                        <div class="expectation-content">
+                            <h4>Work-Life-Balance</h4>
+                            <p>Gesunde Balance zwischen Arbeit und Privatleben. Arbeit soll Spaß machen, aber nicht das
+                                Leben bestimmen.</p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🏠</div>
+                        <div class="expectation-content">
+                            <h4>Homeoffice-Möglichkeit</h4>
+                            <p>Mindestens 2 Tage Remote pro Woche. Ich arbeite fokussiert und selbstständig – egal wo.</p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⭐</div>
+                        <div class="expectation-content">
+                            <h4>Teilzeit / 4-Tage-Woche</h4>
+                            <p>Großer Pluspunkt! 32h/Woche ermöglicht mehr Produktivität und bessere Lebensqualität.</p>
+                            <span class="highlight">Nice-to-have</span>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">💰</div>
+                        <div class="expectation-content">
+                            <h4>Faire Bezahlung</h4>
+                            <p>Mindestens 21€/h – meine Skills und Erfahrung haben einen Wert.</p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🌴</div>
+                        <div class="expectation-content">
+                            <h4>Ausreichend Urlaub</h4>
+                            <p>Minimum 30 Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⏰</div>
+                        <div class="expectation-content">
+                            <h4>Gleitzeit</h4>
+                            <p>Flexible Arbeitszeiten. Ich arbeite am besten, wenn ich meinen Rhythmus selbst bestimmen
+                                kann.</p>
+                        </div>
+                    </div>
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">👥</div>
+                        <div class="expectation-content">
+                            <h4>Sympathisches Team</h4>
+                            <p>Kollegen, mit denen man auch mal über etwas anderes als Code reden kann. Arbeit macht mehr Spaß, wenn die Chemie stimmt.</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+            <!-- Negative Expectations / Deal Breakers -->
+            <div class="expectation-column negative">
+                <h3>🚫 Absolute No-Gos</h3>
+                <div class="expectation-list">
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">📝</div>
+                        <div class="expectation-content">
+                            <h4>Vertragsbruch</h4>
+                            <p>Plötzliche Änderungen vertraglicher Vereinbarungen ohne Rücksprache und Zustimmung.</p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⚠️</div>
+                        <div class="expectation-content">
+                            <h4>Toxische Arbeitskultur</h4>
+                            <p>Toxische Mitarbeiter oder Führungskräfte. Respektvoller Umgang ist Grundvoraussetzung.</p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🔍</div>
+                        <div class="expectation-content">
+                            <h4>Micromanagement</h4>
+                            <p>2x tägliche Kontrolle des Projektfortschritts. Vertrauen statt ständige Überwachung.</p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🏢</div>
+                        <div class="expectation-content">
+                            <h4>Unnötige Präsenzpflicht</h4>
+                            <p>Verpflichtende Teilnahme an fachfremden Meetings, die nichts mit meiner Arbeit zu tun haben.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">💬</div>
+                        <div class="expectation-content">
+                            <h4>Meeting-Wahnsinn</h4>
+                            <p>Stundenlange Meetings für Dinge, die in einem 1-minütigen Telefonat geklärt werden könnten.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🚭</div>
+                        <div class="expectation-content">
+                            <h4>Rauchen im Büro</h4>
+                            <p>Rauchfreie Arbeitsumgebung ist für mich selbstverständlich und gesundheitlich notwendig.</p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technologien & Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Backend (Schwerpunkt)</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">PHP</span>
+                    <span class="skill-tag primary">Laravel</span>
+                    <span class="skill-tag primary">Livewire</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag primary">Tell, don't ask</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">SOLID</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag primary">Law of Demeter</span>
+                    <span class="skill-tag">JUnit</span>
+                    <span class="skill-tag primary">OOP</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">Composer</span>
+                    <span class="skill-tag primary">DRY</span>
+                    <span class="skill-tag primary">KISS</span>
+                    
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Datenbanken</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">MySQL</span>
+                    <span class="skill-tag">MariaDB</span>
+                
+                    <span class="skill-tag primary">SQL Optimierung</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag primary">Normalisierung</span>
+                    <span class="skill-tag primary">ERM</span>
+                    <span class="skill-tag primary">Datenbank-Entwurf</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>DevOps & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">Docker</span>
+                    <span class="skill-tag primary">Git</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Nginx</span>
+                    <span class="skill-tag">Ubuntu Server</span>
+                    <span class="skill-tag primary">Plesk-Administration</span>
+                    <span class="skill-tag primary">BackUp Automatisierung</span>
+                    <span class="skill-tag primary">macOS</span>
+                    <span class="skill-tag">Wordpress</span>
+                    <span class="skill-tag primary">phpMyAdmin</span>
+                    <span class="skill-tag primary">Postman</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend (Solid)</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Alpin.js</span>
+                    <span class="skill-tag primary">Tailwind</span>
+                    <span class="skill-tag">jQuery</span>                    
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag primary">Responsive Design</span>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projekte & Erfahrungen</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Informatik Studium (nicht abgeschlossen)</h3>
+                <p>
+                    Während meines Informatik-Studiums (nicht abgeschlossen) erhielt ich tiefe Einblicke in objektorientierte
+                    Programmierung
+                    und hardwarenahe Programmierung mit C.
+                    Ich erlernte den Entwurf von Datenbanken inklusive ERM und Normalisierung, entwickelte Webanwendungen mit Java
+                    (Spring
+                    Boot) und führte automatisierte Tests mit JUnit durch.
+                    Darüber hinaus sammelte ich Erfahrung in Datenanalyse und statistischer Modellierung mit R und Python sowie in
+                    der
+                    Anwendung mathematischer Konzepte aus Analysis, linearer Algebra und Stochastik.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">C</span>
+                    <span class="tech-badge">R</span>
+                    <span class="tech-badge">JUnit</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Modernesierung eines Bücher Shop's</h3>
+                <p>
+                    Online-Shop für Bücher – mein erstes Projekt, das ich eigenständig leiten durfte.
+                    Neben der technischen Umsetzung lag mein Fokus auf der Architektur, dem Datenbankentwurf und der Entwicklung
+                    einer performanten, modularen Anwendung mit Laravel und Livewire.
+                    Das Projekt wurde containerisiert und lokal mit Docker betrieben.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">Docker</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Moderne Internetpräzens für ein Eishockey-Team &#129418</h3>
+                <p>
+                    Erweiterung der neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung von Teams,
+                    Punkteständen und Spielen. Zusätzlich wurden individuelle Gutenberg-Blöcke implementiert, um redaktionelle Inhalte
+                    flexibel und benutzerfreundlich zu gestalten.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Wordpress</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">Responsive Design</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Umsetzung eines Teilprojektes für ein individuelles Warenwirtschaftssystem für Automatenaufsteller</h3>
+                <p>
+                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems, das Bestands- und Logistikprozesse digitalisiert und
+                    vereinfacht.
+                    Ziel war eine benutzerfreundliche Verwaltung von Produkten, Standorten, Automaten und Lieferungen.
+                    Das System bildet die Basis für ein zentrales, skalierbares Verwaltungssystem.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Webanwendung zur Verwaltung und Automatisierung von Geschäftsprozessen (aktuell)</h3>
+                <p>
+                    Entwicklung einer skalierbaren Laravel Anwendung zur Verwaltung und Zuweisung von Aufträgen verschiedener
+                    Bereiche.
+                    Ziel ist die Automatisierung von Geschäftsprozessen und die effektive Analyse und Visualisierung von Daten, um
+                    Entscheidungsprozesse zu unterstützen.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Tailwind</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">Responsive Design</span>
+                    <span class="tech-badge">Tailwind</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <div class="contact-content">
+            <p>
+                Interessiert an einer Zusammenarbeit? Ich bin offen für Backend-Positionen 
+                und freue mich auf deine Nachricht!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:mvdw@mailbox.org" class="contact-link">
+                    <span class="contact-icon">✉</span>
+                    <span>mvdw@mailbox.org</span>
+                </a>
+                <a href="https://www.linkedin.com/in/marcel-w-04278a327" target="_blank" class="contact-link">
+                    <span class="contact-icon">💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.xing.com/profile/Marcel_Warth/web_profiles?nwt_nav=profile_icon&sc_o=navigation_profile_icon" target="_blank" class="contact-link">
+                    <span class="contact-icon">💼</span>
+                    <span>Xing</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+         // Mobile Menu Toggle
+        const burger = document.querySelector('.burger');
+        const navMenu = document.querySelector('nav ul');
+        const navLinks = document.querySelectorAll('nav a');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+
+
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 360)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                link.style.background = '';
+                link.style.webkitBackgroundClip = '';
+                link.style.webkitTextFillColor = '';
+                link.style.backgroundClip = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'linear-gradient(135deg, var(--accent-green), var(--accent-violet))';
+                    link.style.webkitBackgroundClip = 'text';
+                    link.style.webkitTextFillColor = 'transparent';
+                    link.style.backgroundClip = 'text';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
