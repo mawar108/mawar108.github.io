@@ -14,12 +14,14 @@
         :root {
             --bg-dark: #0f0f23;
             --bg-card: #1a1a2e;
-            --accent: #00d4ff;
-            --accent-secondary: #ff006e;
-            --accent-tertiary: #8338ec;
+
             --accent-green: #00ff87;
             --accent-cyan: #00d4ff;
+            --accent-blue: #0066ff;
+            --accent-purple: #8b5cf6;
             --accent-violet: #c026d3;
+            --accent-red: #ff006e;
+
             --text-primary: #e4e4e7;
             --text-secondary: #a1a1aa;
             --border: #2d2d44;
@@ -57,7 +59,7 @@
         nav .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--accent);
+            color: var(--accent-cyan);
             background: linear-gradient(135deg, var(--accent-green), var(--accent-violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -154,7 +156,7 @@
 
         @keyframes pulse {
             0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
+            50% { transform: translate(-50%, -50%) scale(1.4); }
         }
 
         .hero-content {
@@ -166,16 +168,19 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, 
-                var(--accent-green) 0%, 
-                var(--accent-cyan) 20%, 
-                var(--accent-tertiary) 60%, 
-                var(--accent-violet) 80%,
-                var(--accent-green) 100%);
+                    var(--accent-green) 0%, 
+                    var(--accent-cyan) 16%, 
+                    var(--accent-blue) 33%,
+                    var(--accent-purple) 50%, 
+                    var(--accent-violet) 66%,
+                    var(--accent-red) 83%,
+                    var(--accent-green) 100%
+                );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 300% auto;
-            animation: gradientShift 8s linear infinite;
+            animation: gradientShift 10s linear infinite;
         }
 
 
@@ -201,17 +206,18 @@
             color: var(--text-secondary);
             margin-bottom: 2rem;
             background: linear-gradient(90deg, 
-                var(--accent-secondary) 0%, 
-                var(--accent-cyan) 20%, 
-                var(--accent-tertiary) 60%, 
-                var(--accent-violet) 80%,
-                var(--accent-secondary) 100%
+                    var(--accent-green) 0%, 
+                    var(--accent-cyan) 20%, 
+                    var(--accent-blue) 40%,
+                    var(--accent-purple) 60%, 
+                    var(--accent-violet) 80%, 
+                    var(--accent-green) 100%
                 );
-            background-size: 200% auto;
+            background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 8s linear infinite;
+            animation: gradientShift 10s linear infinite;
         }
 
         .hero .description {
@@ -224,18 +230,18 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--accent);
+            background: var(--accent-cyan);
             color: var(--bg-dark);
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--accent-cyan);
         }
 
         .cta-button:hover {
             background: transparent;
-            color: var(--accent);
+            color: var(--accent-cyan);
             transform: translateY(-2px);
         }
 
@@ -261,7 +267,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red));
             animation: gradientShift 8s linear infinite;
         }
 
@@ -302,7 +308,15 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-green), var(--accent-secondary), var(--accent-tertiary), var(--accent));
+            background: linear-gradient(90deg, 
+                       var(--accent-green) 0%, 
+                        var(--accent-cyan) 16%, 
+                        var(--accent-blue) 33%,
+                        var(--accent-purple) 50%, 
+                        var(--accent-violet) 66%,
+                        var(--accent-red) 83%,
+                        var(--accent-green) 100%
+                    );
             background-size: 200% auto;
             animation: gradientMove 3s linear infinite;
         }
@@ -313,9 +327,9 @@
         }
 
 
-        .stat-card:nth-child(1) .stat-number { color: var(--accent); }
-        .stat-card:nth-child(2) .stat-number { color: var(--accent-secondary); }
-        .stat-card:nth-child(3) .stat-number { color: var(--accent-tertiary); }
+        .stat-card:nth-child(1) .stat-number { color: var(--accent-cyan); }
+        .stat-card:nth-child(2) .stat-number { color: var(--accent-red); }
+        .stat-card:nth-child(3) .stat-number { color: var(--accent-purple); }
         .stat-card:nth-child(4) .stat-number { color: var(--accent-green); }
 
         .stat-number {
@@ -360,7 +374,7 @@
         }
 
         .expectation-column.negative h3 {
-            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-violet));
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -400,7 +414,7 @@
         }
 
         .expectation-column.negative .expectation-item::before {
-            background: linear-gradient(180deg, var(--accent-secondary), var(--accent-violet));
+            background: linear-gradient(180deg, var(--accent-red), var(--accent-violet));
         }
 
         .expectation-item:hover::before {
@@ -429,7 +443,7 @@
         }
 
         .expectation-column.negative .expectation-icon {
-            color: var(--accent-secondary);
+            color: var(--accent-red);
         }
 
         .expectation-content h4 {
@@ -461,7 +475,7 @@
 
         .expectation-column.negative .highlight {
             background: rgba(239, 68, 68, 0.15);
-            color: var(--accent-secondary);
+            color: var(--accent-red);
             border: 1px solid rgba(239, 68, 68, 0.3);
         }
 
@@ -483,10 +497,10 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
+            border-color: var(--accent-cyan);
             transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px var(--accent);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 40px var(--accent-cyan);
         }
 
         .skill-category h3 {
@@ -494,9 +508,9 @@
             font-size: 1.3rem;
         }
 
-        .skill-category:nth-child(1) h3 { color: var(--accent); }
-        .skill-category:nth-child(2) h3 { color: var(--accent-secondary); }
-        .skill-category:nth-child(3) h3 { color: var(--accent-tertiary); }
+        .skill-category:nth-child(1) h3 { color: var(--accent-cyan); }
+        .skill-category:nth-child(2) h3 { color: var(--accent-red); }
+        .skill-category:nth-child(3) h3 { color: var(--accent-purple); }
         .skill-category:nth-child(4) h3 { color: var(--accent-green); }
 
         .skill-tags {
@@ -507,7 +521,7 @@
 
         .skill-tag {
             background: rgba(0, 212, 255, 0.1);
-            color: var(--accent);
+            color: var(--accent-cyan);
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -516,7 +530,7 @@
 
         .skill-tag.primary {
             background: rgba(0, 212, 255, 0.2);
-            border: 1px solid var(--accent);
+            border: 1px solid var(--accent-cyan);
             font-weight: bold;
         }
 
@@ -538,8 +552,8 @@
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-secondary);
-            box-shadow: 0 10px 40px var(--accent-secondary);
+            border-color: var(--accent-red);
+            box-shadow: 0 10px 40px var(--accent-red);
         }
 
         .project-card h3 {
@@ -561,7 +575,7 @@
 
         .tech-badge {
             background: rgba(0, 212, 255, 0.1);
-            color: var(--accent);
+            color: var(--accent-cyan);
             padding: 0.3rem 0.8rem;
             border-radius: 12px;
             font-size: 0.85rem;
