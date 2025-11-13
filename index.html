@@ -79,12 +79,20 @@
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+        nav a:hover, nav a.active {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
+
+        nav ul li:nth-child(1) a:hover, nav ul li:nth-child(1) a.active { background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); background-clip: text; }
+        nav ul li:nth-child(2) a:hover, nav ul li:nth-child(2) a.active { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); background-clip: text;}
+        nav ul li:nth-child(3) a:hover, nav ul li:nth-child(3) a.active { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); background-clip: text;}
+        nav ul li:nth-child(4) a:hover, nav ul li:nth-child(4) a.active { background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet)); background-clip: text;}
+        nav ul li:nth-child(5) a:hover, nav ul li:nth-child(5) a.active { background: linear-gradient(135deg, var(--accent-violet), var(--accent-red)); background-clip: text;}
+        nav ul li:nth-child(6) a:hover, nav ul li:nth-child(6) a.active { background: linear-gradient(135deg, var(--accent-red), var(--accent-red)); background-clip: text;}
+
 
          /* Burger Menu */
         .burger {
@@ -185,7 +193,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 300% auto;
-            animation: gradientShift 10s linear infinite;
+            animation: gradientShift 14s linear infinite;
         }
 
 
@@ -203,7 +211,7 @@
             border-radius: 50%;
             top: 50%;
             right: -40%;
-            animation: pulse 5s ease-in-out infinite reverse;
+            animation: pulse 6s ease-in-out infinite reverse;
         }
 
         .hero .subtitle::after {
@@ -226,7 +234,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientShift 10s linear infinite;
+            animation: gradientShift 14s linear infinite;
         }
 
         .hero .description {
@@ -276,9 +284,18 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 100px;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red));
+            background: linear-gradient(90deg, 
+                var(--accent-green) 0%, 
+                var(--accent-cyan) 16%, 
+                var(--accent-blue) 33%,
+                var(--accent-purple) 50%, 
+                var(--accent-violet) 66%,
+                var(--accent-red) 83%,
+                var(--accent-green) 100%
+            );
+            background-size: 300% 100%;
             animation: gradientShift 8s linear infinite;
         }
 
@@ -310,6 +327,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            text-decoration:none;
         }
 
         .stat-card::before {
@@ -329,7 +347,7 @@
                         var(--accent-green) 100%
                     );
             background-size: 200% auto;
-            animation: gradientMove 3s linear infinite;
+            animation: gradientMove 12s linear infinite;
         }
 
         @keyframes gradientMove {
@@ -808,10 +826,10 @@
                     <span class="stat-number">1+</span>
                     <span class="stat-label">Jahre Erfahrung</span>
                 </div>
-                <div class="stat-card">
+                <a href="#projects" class="stat-card">
                     <span class="stat-number">5+</span>
                     <span class="stat-label">Projekte</span>
-                </div>
+                </a>
                 <div class="stat-card">
                     <span class="stat-number">80%</span>
                     <span class="stat-label">Backend Focus</span>
@@ -876,7 +894,7 @@
                         <div class="expectation-icon">🌴</div>
                         <div class="expectation-content">
                             <h4>Ausreichend Urlaub</h4>
-                            <p>Minimum 30 Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
+                            <p>Minimum ,  Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
                         </div>
                     </div>
     
@@ -975,6 +993,7 @@
                             <span class="highlight">Deal-Breaker</span>
                         </div>
                     </div>
+    
                 </div>
             </div>
         </div>
@@ -1240,16 +1259,9 @@
             });
 
             navLinks.forEach(link => {
-                link.style.color = '';
-                link.style.background = '';
-                link.style.webkitBackgroundClip = '';
-                link.style.webkitTextFillColor = '';
-                link.style.backgroundClip = '';
+                 link.classList.remove("active");
                 if (link.getAttribute('href') === `#${current}`) {
-                    link.style.background = 'linear-gradient(135deg, var(--accent-green), var(--accent-violet))';
-                    link.style.webkitBackgroundClip = 'text';
-                    link.style.webkitTextFillColor = 'transparent';
-                    link.style.backgroundClip = 'text';
+                    link.classList.add("active");
                 }
             });
         });
