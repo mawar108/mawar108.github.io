@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,22 +80,52 @@
             transition: color 0.3s;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-
-        nav ul li:nth-child(1) a:hover, nav ul li:nth-child(1) a.active { background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan)); background-clip: text; }
-        nav ul li:nth-child(2) a:hover, nav ul li:nth-child(2) a.active { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); background-clip: text;}
-        nav ul li:nth-child(3) a:hover, nav ul li:nth-child(3) a.active { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); background-clip: text;}
-        nav ul li:nth-child(4) a:hover, nav ul li:nth-child(4) a.active { background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet)); background-clip: text;}
-        nav ul li:nth-child(5) a:hover, nav ul li:nth-child(5) a.active { background: linear-gradient(135deg, var(--accent-violet), var(--accent-red)); background-clip: text;}
-        nav ul li:nth-child(6) a:hover, nav ul li:nth-child(6) a.active { background: linear-gradient(135deg, var(--accent-red), var(--accent-red)); background-clip: text;}
 
 
-         /* Burger Menu */
+        nav ul li:nth-child(1) a:hover,
+        nav ul li:nth-child(1) a.active {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            background-clip: text;
+        }
+
+        nav ul li:nth-child(2) a:hover,
+        nav ul li:nth-child(2) a.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            background-clip: text;
+        }
+
+        nav ul li:nth-child(3) a:hover,
+        nav ul li:nth-child(3) a.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            background-clip: text;
+        }
+
+        nav ul li:nth-child(4) a:hover,
+        nav ul li:nth-child(4) a.active {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet));
+            background-clip: text;
+        }
+
+        nav ul li:nth-child(5) a:hover,
+        nav ul li:nth-child(5) a.active {
+            background: linear-gradient(135deg, var(--accent-violet), var(--accent-red));
+            background-clip: text;
+        }
+
+        nav ul li:nth-child(6) a:hover,
+        nav ul li:nth-child(6) a.active {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-red));
+            background-clip: text;
+        }
+
+
+        /* Burger Menu */
         .burger {
             display: none;
             flex-direction: column;
@@ -163,13 +194,21 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.4); }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.4);
+            }
         }
 
         .hero::before,
         .hero::after {
-            pointer-events: none; /* Füge das hinzu! */
+            pointer-events: none;
+            /* Füge das hinzu! */
         }
 
         .hero-content {
@@ -180,15 +219,14 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, 
-                    var(--accent-green) 0%, 
-                    var(--accent-cyan) 16%, 
+            background: linear-gradient(90deg,
+                    var(--accent-green) 0%,
+                    var(--accent-cyan) 16%,
                     var(--accent-blue) 33%,
-                    var(--accent-purple) 50%, 
+                    var(--accent-purple) 50%,
                     var(--accent-violet) 66%,
                     var(--accent-red) 83%,
-                    var(--accent-green) 100%
-                );
+                    var(--accent-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -198,12 +236,17 @@
 
 
         @keyframes gradientShift {
-            0% { background-position: 0% center; }
-            100% { background-position: 300% center; }
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 300% center;
+            }
         }
 
         .hero .subtitle::after {
-           content: '';
+            content: '';
             position: absolute;
             width: 400px;
             height: 400px;
@@ -222,14 +265,13 @@
             font-size: 1.5rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            background: linear-gradient(90deg, 
-                    var(--accent-green) 0%, 
-                    var(--accent-cyan) 20%, 
+            background: linear-gradient(90deg,
+                    var(--accent-green) 0%,
+                    var(--accent-cyan) 20%,
                     var(--accent-blue) 40%,
-                    var(--accent-purple) 60%, 
-                    var(--accent-violet) 80%, 
-                    var(--accent-green) 100%
-                );
+                    var(--accent-purple) 60%,
+                    var(--accent-violet) 80%,
+                    var(--accent-green) 100%);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -286,15 +328,14 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: linear-gradient(90deg, 
-                var(--accent-green) 0%, 
-                var(--accent-cyan) 16%, 
-                var(--accent-blue) 33%,
-                var(--accent-purple) 50%, 
-                var(--accent-violet) 66%,
-                var(--accent-red) 83%,
-                var(--accent-green) 100%
-            );
+            background: linear-gradient(90deg,
+                    var(--accent-green) 0%,
+                    var(--accent-cyan) 16%,
+                    var(--accent-blue) 33%,
+                    var(--accent-purple) 50%,
+                    var(--accent-violet) 66%,
+                    var(--accent-red) 83%,
+                    var(--accent-green) 100%);
             background-size: 300% 100%;
             animation: gradientShift 8s linear infinite;
         }
@@ -327,7 +368,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            text-decoration:none;
+            text-decoration: none;
         }
 
         .stat-card::before {
@@ -337,29 +378,44 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, 
-                       var(--accent-green) 0%, 
-                        var(--accent-cyan) 16%, 
-                        var(--accent-blue) 33%,
-                        var(--accent-purple) 50%, 
-                        var(--accent-violet) 66%,
-                        var(--accent-red) 83%,
-                        var(--accent-green) 100%
-                    );
+            background: linear-gradient(90deg,
+                    var(--accent-green) 0%,
+                    var(--accent-cyan) 16%,
+                    var(--accent-blue) 33%,
+                    var(--accent-purple) 50%,
+                    var(--accent-violet) 66%,
+                    var(--accent-red) 83%,
+                    var(--accent-green) 100%);
             background-size: 200% auto;
             animation: gradientMove 12s linear infinite;
         }
 
         @keyframes gradientMove {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
 
-        .stat-card:nth-child(1) .stat-number { color: var(--accent-cyan); }
-        .stat-card:nth-child(2) .stat-number { color: var(--accent-red); }
-        .stat-card:nth-child(3) .stat-number { color: var(--accent-purple); }
-        .stat-card:nth-child(4) .stat-number { color: var(--accent-green); }
+        .stat-card:nth-child(1) .stat-number {
+            color: var(--accent-cyan);
+        }
+
+        .stat-card:nth-child(2) .stat-number {
+            color: var(--accent-red);
+        }
+
+        .stat-card:nth-child(3) .stat-number {
+            color: var(--accent-purple);
+        }
+
+        .stat-card:nth-child(4) .stat-number {
+            color: var(--accent-green);
+        }
 
         .stat-number {
             font-size: 2rem;
@@ -537,10 +593,21 @@
             font-size: 1.3rem;
         }
 
-        .skill-category:nth-child(1) h3 { color: var(--accent-cyan); }
-        .skill-category:nth-child(2) h3 { color: var(--accent-red); }
-        .skill-category:nth-child(3) h3 { color: var(--accent-purple); }
-        .skill-category:nth-child(4) h3 { color: var(--accent-green); }
+        .skill-category:nth-child(1) h3 {
+            color: var(--accent-cyan);
+        }
+
+        .skill-category:nth-child(2) h3 {
+            color: var(--accent-red);
+        }
+
+        .skill-category:nth-child(3) h3 {
+            color: var(--accent-purple);
+        }
+
+        .skill-category:nth-child(4) h3 {
+            color: var(--accent-green);
+        }
 
         .skill-tags {
             display: flex;
@@ -645,7 +712,7 @@
         }
 
         .contact-link:hover {
-             transform: translateY(-5px);
+            transform: translateY(-5px);
             border-color: var(--accent-green);
             transform: translateY(-5px);
             border-color: var(--accent-green);
@@ -711,12 +778,29 @@
                 transform: translateX(0);
             }
 
-            nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
-            nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
-            nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
-            nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
-            nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
-            nav ul.active li:nth-child(6) { transition-delay: 0.6s; }
+            nav ul.active li:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            nav ul.active li:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+
+            nav ul.active li:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+
+            nav ul.active li:nth-child(4) {
+                transition-delay: 0.4s;
+            }
+
+            nav ul.active li:nth-child(5) {
+                transition-delay: 0.5s;
+            }
+
+            nav ul.active li:nth-child(6) {
+                transition-delay: 0.6s;
+            }
 
             nav a {
                 font-size: 1.3rem;
@@ -738,7 +822,7 @@
                 gap: 1rem;
             }
 
-             .expectation-column h3 {
+            .expectation-column h3 {
                 font-size: 1.5rem;
             }
 
@@ -762,6 +846,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -789,7 +874,7 @@
             <h1>Marcel v. d. Warth</h1>
             <p class="subtitle">Backend-Focused Full Stack Developer</p>
             <p class="description">
-                Spezialisiert auf skalierbare Backend-Architekturen, APIs und Datenbanken. 
+                Spezialisiert auf skalierbare Backend-Architekturen, APIs und Datenbanken.
                 Mit Full Stack Erfahrung, aber einer Leidenschaft für serverseitige Entwicklung.
             </p>
             <a href="#contact" class="cta-button">Kontakt aufnehmen</a>
@@ -802,14 +887,18 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    Ich bin Full Stack Developer mit klarer Präferenz für Backend-Entwicklung. Besonders gerne arbeite ich an
+                    Ich bin Full Stack Developer mit klarer Präferenz für Backend-Entwicklung. Besonders gerne arbeite
+                    ich an
                     Datenbankdesigns, performanten Abfragen und der Analyse von Datenstrukturen.
-                    Ich entwickle APIs, die sauber konzipiert, effizient und wartbar sind – immer mit dem Ziel, robuste und skalierbare
+                    Ich entwickle APIs, die sauber konzipiert, effizient und wartbar sind – immer mit dem Ziel, robuste
+                    und skalierbare
                     Systeme zu schaffen.
                 </p>
                 <p>
-                    Frontend kann ich, aber ehrlich gesagt: Wenn ich es selbst gestalten würde, sähe es wahrscheinlich aus wie aus den
-                    2000ern. Am wohlsten fühle ich mich im Backend – dort, wo Logik, Performance und saubere Architektur zählen.
+                    Frontend kann ich, aber ehrlich gesagt: Wenn ich es selbst gestalten würde, sähe es wahrscheinlich
+                    aus wie aus den
+                    2000ern. Am wohlsten fühle ich mich im Backend – dort, wo Logik, Performance und saubere Architektur
+                    zählen.
                 </p>
                 <p>
                     Ich suche nach einer Position, in der ich mich auf die serverseitige Entwicklung konzentrieren
@@ -849,13 +938,13 @@
             Transparenz ist mir wichtig. Hier findest du meine Erwartungen und Deal-Breakers –
             damit wir beide schnell wissen, ob es passt.
         </p>
-    
+
         <div class="expectations-container">
             <!-- Positive Expectations -->
             <div class="expectation-column positive">
                 <h3>✨ Meine Erwartungen</h3>
                 <div class="expectation-list">
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">⚖️</div>
                         <div class="expectation-content">
@@ -864,15 +953,16 @@
                                 Leben bestimmen.</p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">🏠</div>
                         <div class="expectation-content">
                             <h4>Homeoffice-Möglichkeit</h4>
-                            <p>Mindestens 2 Tage Remote pro Woche. Ich arbeite fokussiert und selbstständig – egal wo.</p>
+                            <p>Mindestens 2 Tage Remote pro Woche. Ich arbeite fokussiert und selbstständig – egal wo.
+                            </p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">⭐</div>
                         <div class="expectation-content">
@@ -881,7 +971,7 @@
                             <span class="highlight">Nice-to-have</span>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">💰</div>
                         <div class="expectation-content">
@@ -889,7 +979,7 @@
                             <p>Mindestens 21€/h – meine Skills und Erfahrung haben einen Wert.</p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">🌴</div>
                         <div class="expectation-content">
@@ -897,7 +987,7 @@
                             <p>Minimum 30 Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">⏰</div>
                         <div class="expectation-content">
@@ -911,7 +1001,8 @@
                         <div class="expectation-icon">👥</div>
                         <div class="expectation-content">
                             <h4>Sympathisches Team</h4>
-                            <p>Kollegen, mit denen man auch mal über etwas anderes als Code reden kann. Arbeit macht mehr Spaß, wenn die Chemie stimmt.</p>
+                            <p>Kollegen, mit denen man auch mal über etwas anderes als Code reden kann. Arbeit macht
+                                mehr Spaß, wenn die Chemie stimmt.</p>
                         </div>
                     </div>
 
@@ -919,19 +1010,20 @@
                         <div class="expectation-icon">☕</div>
                         <div class="expectation-content">
                             <h4>Guter Kaffee</h4>
-                            <p>Backend läuft auf Kaffee. Schlechter Kaffee = schlechter Code. Das ist keine Meinung, das ist Physik.</p>
+                            <p>Backend läuft auf Kaffee. Schlechter Kaffee = schlechter Code. Das ist keine Meinung, das
+                                ist Physik.</p>
                             <span class="highlight">Nice-to-have</span>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
-    
+
             <!-- Negative Expectations / Deal Breakers -->
             <div class="expectation-column negative">
                 <h3>🚫 Absolute No-Gos</h3>
                 <div class="expectation-list">
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">📝</div>
                         <div class="expectation-content">
@@ -940,16 +1032,17 @@
                             <span class="highlight">Deal-Breaker</span>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">⚠️</div>
                         <div class="expectation-content">
                             <h4>Toxische Arbeitskultur</h4>
-                            <p>Toxische Mitarbeiter oder Führungskräfte. Respektvoller Umgang ist Grundvoraussetzung.</p>
+                            <p>Toxische Mitarbeiter oder Führungskräfte. Respektvoller Umgang ist Grundvoraussetzung.
+                            </p>
                             <span class="highlight">Deal-Breaker</span>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">🔍</div>
                         <div class="expectation-content">
@@ -957,30 +1050,33 @@
                             <p>2x tägliche Kontrolle des Projektfortschritts. Vertrauen statt ständige Überwachung.</p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">🏢</div>
                         <div class="expectation-content">
                             <h4>Unnötige Präsenzpflicht</h4>
-                            <p>Verpflichtende Teilnahme an fachfremden Meetings, die nichts mit meiner Arbeit zu tun haben.
+                            <p>Verpflichtende Teilnahme an fachfremden Meetings, die nichts mit meiner Arbeit zu tun
+                                haben.
                             </p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">💬</div>
                         <div class="expectation-content">
                             <h4>Meeting-Wahnsinn</h4>
-                            <p>Stundenlange Meetings für Dinge, die in einem 1-minütigen Telefonat geklärt werden könnten.
+                            <p>Stundenlange Meetings für Dinge, die in einem 1-minütigen Telefonat geklärt werden
+                                könnten.
                             </p>
                         </div>
                     </div>
-    
+
                     <div class="expectation-item">
                         <div class="expectation-icon">🚭</div>
                         <div class="expectation-content">
                             <h4>Rauchen im Büro</h4>
-                            <p>Rauchfreie Arbeitsumgebung ist für mich selbstverständlich und gesundheitlich notwendig.</p>
+                            <p>Rauchfreie Arbeitsumgebung ist für mich selbstverständlich und gesundheitlich notwendig.
+                            </p>
                             <span class="highlight">Deal-Breaker</span>
                         </div>
                     </div>
@@ -988,12 +1084,13 @@
                         <div class="expectation-icon">📱</div>
                         <div class="expectation-content">
                             <h4>Kommunikationschaos</h4>
-                            <p>Mehrere parallele Kommunikationskanäle (Slack + Teams + WhatsApp + E-Mail + ...). Ein bis zwei Tools reichen
+                            <p>Mehrere parallele Kommunikationskanäle (Slack + Teams + WhatsApp + E-Mail + ...). Ein bis
+                                zwei Tools reichen
                                 völlig.</p>
                             <span class="highlight">Deal-Breaker</span>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -1022,7 +1119,7 @@
                     <span class="skill-tag">Composer</span>
                     <span class="skill-tag primary">DRY</span>
                     <span class="skill-tag primary">KISS</span>
-                    
+
                 </div>
             </div>
 
@@ -1053,7 +1150,7 @@
                     <span class="skill-tag">Wordpress</span>
                     <span class="skill-tag primary">phpMyAdmin</span>
                     <span class="skill-tag primary">Postman</span>
-                    <span class="skill-tag primary">Postman</span>
+                    <span class="skill-tag">Figma</span>
                 </div>
             </div>
 
@@ -1064,10 +1161,10 @@
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">Alpin.js</span>
                     <span class="skill-tag primary">Tailwind</span>
-                    <span class="skill-tag">jQuery</span>                    
+                    <span class="skill-tag">jQuery</span>
                     <span class="skill-tag">Bootstrap</span>
                     <span class="skill-tag primary">Responsive Design</span>
-                    
+
                 </div>
             </div>
         </div>
@@ -1080,13 +1177,16 @@
             <div class="project-card">
                 <h3>Informatik Studium (nicht abgeschlossen)</h3>
                 <p>
-                    Während meines Informatik-Studiums (nicht abgeschlossen) erhielt ich tiefe Einblicke in objektorientierte
+                    Während meines Informatik-Studiums (nicht abgeschlossen) erhielt ich tiefe Einblicke in
+                    objektorientierte
                     Programmierung
                     und hardwarenahe Programmierung mit C.
-                    Ich erlernte den Entwurf von Datenbanken inklusive ERM und Normalisierung, entwickelte Webanwendungen mit Java
+                    Ich erlernte den Entwurf von Datenbanken inklusive ERM und Normalisierung, entwickelte
+                    Webanwendungen mit Java
                     (Spring
                     Boot) und führte automatisierte Tests mit JUnit durch.
-                    Darüber hinaus sammelte ich Erfahrung in Datenanalyse und statistischer Modellierung mit R und Python sowie in
+                    Darüber hinaus sammelte ich Erfahrung in Datenanalyse und statistischer Modellierung mit R und
+                    Python sowie in
                     der
                     Anwendung mathematischer Konzepte aus Analysis, linearer Algebra und Stochastik.
                 </p>
@@ -1096,7 +1196,7 @@
                     <span class="tech-badge">Datenbank-Entwurf</span>
                     <span class="tech-badge">C</span>
                     <span class="tech-badge">R</span>
-                    <span class="tech-badge">JUnit</span>            
+                    <span class="tech-badge">JUnit</span>
                 </div>
             </div>
 
@@ -1104,7 +1204,8 @@
                 <h3>Modernesierung eines Bücher Shop's</h3>
                 <p>
                     Online-Shop für Bücher – mein erstes Projekt, das ich eigenständig leiten durfte.
-                    Neben der technischen Umsetzung lag mein Fokus auf der Architektur, dem Datenbankentwurf und der Entwicklung
+                    Neben der technischen Umsetzung lag mein Fokus auf der Architektur, dem Datenbankentwurf und der
+                    Entwicklung
                     einer performanten, modularen Anwendung mit Laravel und Livewire.
                     Das Projekt wurde containerisiert und lokal mit Docker betrieben.
                 </p>
@@ -1121,8 +1222,10 @@
             <div class="project-card">
                 <h3>Moderne Internetpräzens für ein Eishockey-Team &#129418</h3>
                 <p>
-                    Erweiterung der neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung von Teams,
-                    Punkteständen und Spielen. Zusätzlich wurden individuelle Gutenberg-Blöcke implementiert, um redaktionelle Inhalte
+                    Erweiterung der neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung
+                    von Teams,
+                    Punkteständen und Spielen. Zusätzlich wurden individuelle Gutenberg-Blöcke implementiert, um
+                    redaktionelle Inhalte
                     flexibel und benutzerfreundlich zu gestalten.
                 </p>
                 <div class="tech-stack">
@@ -1134,9 +1237,11 @@
             </div>
 
             <div class="project-card">
-                <h3>Umsetzung eines Teilprojektes für ein individuelles Warenwirtschaftssystem für Automatenaufsteller</h3>
+                <h3>Umsetzung eines Teilprojektes für ein individuelles Warenwirtschaftssystem für Automatenaufsteller
+                </h3>
                 <p>
-                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems, das Bestands- und Logistikprozesse digitalisiert und
+                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems, das Bestands- und Logistikprozesse
+                    digitalisiert und
                     vereinfacht.
                     Ziel war eine benutzerfreundliche Verwaltung von Produkten, Standorten, Automaten und Lieferungen.
                     Das System bildet die Basis für ein zentrales, skalierbares Verwaltungssystem.
@@ -1154,9 +1259,11 @@
             <div class="project-card">
                 <h3>Webanwendung zur Verwaltung und Automatisierung von Geschäftsprozessen (aktuell)</h3>
                 <p>
-                    Entwicklung einer skalierbaren Laravel Anwendung zur Verwaltung und Zuweisung von Aufträgen verschiedener
+                    Entwicklung einer skalierbaren Laravel Anwendung zur Verwaltung und Zuweisung von Aufträgen
+                    verschiedener
                     Bereiche.
-                    Ziel ist die Automatisierung von Geschäftsprozessen und die effektive Analyse und Visualisierung von Daten, um
+                    Ziel ist die Automatisierung von Geschäftsprozessen und die effektive Analyse und Visualisierung von
+                    Daten, um
                     Entscheidungsprozesse zu unterstützen. Zusätzlich verantwortlich für Server-Administration,
                     Plesk-Verwaltung und automatisierte Backup-Strategien.
                 </p>
@@ -1182,7 +1289,7 @@
         <h2>Kontakt</h2>
         <div class="contact-content">
             <p>
-                Interessiert an einer Zusammenarbeit? Ich bin offen für Backend-Positionen 
+                Interessiert an einer Zusammenarbeit? Ich bin offen für Backend-Positionen
                 und freue mich auf deine Nachricht!
             </p>
             <div class="contact-links">
@@ -1194,7 +1301,8 @@
                     <span class="contact-icon">💼</span>
                     <span>LinkedIn</span>
                 </a>
-                <a href="https://www.xing.com/profile/Marcel_Warth/web_profiles?nwt_nav=profile_icon&sc_o=navigation_profile_icon" target="_blank" class="contact-link">
+                <a href="https://www.xing.com/profile/Marcel_Warth/web_profiles?nwt_nav=profile_icon&sc_o=navigation_profile_icon"
+                    target="_blank" class="contact-link">
                     <span class="contact-icon">💼</span>
                     <span>Xing</span>
                 </a>
@@ -1206,10 +1314,10 @@
     <footer>
         <p></p>
     </footer>
-<button id="scrollTop"
-    style="display:none; position:fixed; bottom:20px; right:20px; z-index:999; background:var(--accent-cyan); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; font-size:24px;">↑</button>
+    <button id="scrollTop"
+        style="display:none; position:fixed; bottom:20px; right:20px; z-index:999; background:var(--accent-cyan); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; font-size:24px;">↑</button>
     <script>
-         // Mobile Menu Toggle
+        // Mobile Menu Toggle
         const burger = document.querySelector('.burger');
         const navMenu = document.querySelector('nav ul');
         const navLinks = document.querySelectorAll('nav a');
@@ -1248,18 +1356,23 @@
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (scrollY >= (sectionTop - 360)) {
                     current = section.getAttribute('id');
                 }
             });
 
+             // Fix für letzte Section: Prüfe ob am Ende der Seite
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                const lastSection = sections[sections.length - 1];
+                current = lastSection.getAttribute('id');
+            }
+
             navLinks.forEach(link => {
-                 link.classList.remove("active");
+                link.classList.remove("active");
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add("active");
                 }
@@ -1275,6 +1388,7 @@
         });
     </script>
 
-   
+
 </body>
+
 </html>
