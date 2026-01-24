@@ -298,12 +298,20 @@
             font-weight: bold;
             transition: all 0.3s;
             border: 2px solid var(--accent-cyan);
+            width: fit-content;
         }
 
         .cta-button:hover {
             background: transparent;
             color: var(--accent-cyan);
             transform: translateY(-2px);
+        }
+
+        .cta-button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
         }
 
         /* Section Styling */
@@ -633,7 +641,7 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
         }
 
@@ -860,9 +868,10 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Über mich</a></li>
-                <li><a href="#expectations">Erwartungen</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projekte</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#expectations">Erwartungen</a></li>
+                
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </div>
@@ -872,12 +881,15 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Marcel v. d. Warth</h1>
-            <p class="subtitle">Backend-Focused Full Stack Developer</p>
+            <p class="subtitle">Backend-Focused Full-Stack Developer (PHP · Laravel)</p>
             <p class="description">
-                Spezialisiert auf skalierbare Backend-Architekturen, APIs und Datenbanken.
-                Mit Full Stack Erfahrung, aber einer Leidenschaft für serverseitige Entwicklung.
+                Fachinformatiker für Anwendungsentwicklung mit Fokus auf saubere Backends, Datenmodelle und wartbare Business-Logik
             </p>
-            <a href="#contact" class="cta-button">Kontakt aufnehmen</a>
+            <div class="cta-button-group">
+                <a href="#contact" class="cta-button">Kontakt aufnehmen</a>
+                <a href="#projects" class="cta-button">Projekte</a>
+            </div>
+        
         </div>
     </section>
 
@@ -887,27 +899,19 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    Ich bin Full Stack Developer mit klarer Präferenz für Backend-Entwicklung. Besonders gerne arbeite
-                    ich an
-                    Datenbankdesigns, performanten Abfragen und der Analyse von Datenstrukturen.
-                    Ich entwickle APIs, die sauber konzipiert, effizient und wartbar sind – immer mit dem Ziel, robuste
-                    und skalierbare
-                    Systeme zu schaffen.
+                    Ich bin Full-Stack-Developer mit klarem Schwerpunkt auf Backend-Entwicklung.
+                    Besonders gerne arbeite ich an Datenbankdesigns, performanten Abfragen und der Analyse von Datenstrukturen. 
+                    Dabei entwickle ich APIs, die sauber konzipiert, effizient und gut wartbar sind – mit dem Ziel, 
+                    robuste und skalierbare Systeme zu schaffen.
                 </p>
                 <p>
-                    Frontend kann ich, aber ehrlich gesagt: Wenn ich es selbst gestalten würde, sähe es wahrscheinlich
-                    aus wie aus den
-                    2000ern. Am wohlsten fühle ich mich im Backend – dort, wo Logik, Performance und saubere Architektur
-                    zählen.
+                    Mein Fokus liegt klar auf der serverseitigen Entwicklung, 
+                    während ich meine Full-Stack-Erfahrung gezielt als zusätzlichen Mehrwert einbringe.
                 </p>
                 <p>
-                    Ich suche nach einer Position, in der ich mich auf die serverseitige Entwicklung konzentrieren
-                    und meine Full-Stack-Erfahrung als zusätzlichen Mehrwert einbringen kann.
-                </p>
-                <p>
-                    Obwohl mein Fokus bisher in der Webentwicklung liegt, bin ich offen dafür, neue Wege
-                    einzuschlagen – sei es in angrenzenden IT-Bereichen oder völlig neuen Technologien.
-                    Ich lerne gerne dazu und stelle mich neuen Herausforderungen.
+                    Aktuell suche ich eine Position, in der ich mich weiter im Backend-Umfeld entwickeln kann. 
+                    Gleichzeitig bin ich offen für neue Technologien und angrenzende IT-Bereiche und 
+                    lerne mich schnell in neue Themen ein.
                 </p>
             </div>
             <div class="about-stats">
@@ -931,172 +935,87 @@
         </div>
     </section>
 
-    <!-- Expectations Section -->
-    <section id="expectations">
-        <h2>Was ich suche</h2>
-        <p class="section-intro">
-            Transparenz ist mir wichtig. Hier findest du meine Erwartungen und Deal-Breakers –
-            damit wir beide schnell wissen, ob es passt.
-        </p>
-
-        <div class="expectations-container">
-            <!-- Positive Expectations -->
-            <div class="expectation-column positive">
-                <h3>✨ Meine Erwartungen</h3>
-                <div class="expectation-list">
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">⚖️</div>
-                        <div class="expectation-content">
-                            <h4>Work-Life-Balance</h4>
-                            <p>Gesunde Balance zwischen Arbeit und Privatleben. Arbeit soll Spaß machen, aber nicht das
-                                Leben bestimmen.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">🏠</div>
-                        <div class="expectation-content">
-                            <h4>Homeoffice-Möglichkeit</h4>
-                            <p>Mindestens 2 Tage Remote pro Woche. Ich arbeite fokussiert und selbstständig – egal wo.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">⭐</div>
-                        <div class="expectation-content">
-                            <h4>Teilzeit / 4-Tage-Woche</h4>
-                            <p>Großer Pluspunkt! 32h/Woche ermöglicht mehr Produktivität und bessere Lebensqualität.</p>
-                            <span class="highlight">Nice-to-have</span>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">💰</div>
-                        <div class="expectation-content">
-                            <h4>Faire Bezahlung</h4>
-                            <p>Mindestens 20€/h – meine Skills und Erfahrung haben einen Wert.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">🌴</div>
-                        <div class="expectation-content">
-                            <h4>Ausreichend Urlaub</h4>
-                            <p>Minimum 30 Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">⏰</div>
-                        <div class="expectation-content">
-                            <h4>Gleitzeit</h4>
-                            <p>Flexible Arbeitszeiten. Ich arbeite am besten, wenn ich meinen Rhythmus selbst bestimmen
-                                kann.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">👥</div>
-                        <div class="expectation-content">
-                            <h4>Sympathisches Team</h4>
-                            <p>Kollegen, mit denen man auch mal über etwas anderes als Code reden kann. Arbeit macht
-                                mehr Spaß, wenn die Chemie stimmt.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">☕</div>
-                        <div class="expectation-content">
-                            <h4>Guter Kaffee</h4>
-                            <p>Backend läuft auf Kaffee. Schlechter Kaffee = schlechter Code. Das ist keine Meinung, das
-                                ist Physik.</p>
-                            <span class="highlight">Nice-to-have</span>
-                        </div>
-                    </div>
-
+        <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projekte & Erfahrungen</h2>
+        <div class="projects-grid">
+        
+            <div class="project-card">
+                <h3>Neubau eines Bücher Shop's</h3>
+                <p>
+                    Eigenständig geleitetes Projekt zur Modernisierung eines bestehenden Online-Shops für Bücher.  
+                    Mein Fokus lag auf <strong>Architektur</strong>, <strong>Datenbankdesign</strong> und der Entwicklung einer <strong>performanten, modularen Backend-Logik</strong> mit Laravel und Livewire.  
+                    Die Anwendung wurde containerisiert und lokal mit Docker betrieben, um eine stabile und wartbare Entwicklungsumgebung zu gewährleisten.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Alpin.js</span>
                 </div>
             </div>
 
-            <!-- Negative Expectations / Deal Breakers -->
-            <div class="expectation-column negative">
-                <h3>🚫 Absolute No-Gos</h3>
-                <div class="expectation-list">
+            <div class="project-card">
+                <h3>Moderne Internetpräsenz für ein Eishockey-Team &#129418</h3>
+                <p>
+                    Erweiterung einer neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung von Teams, Punkteständen und Spielen.  
+                    Ich habe zudem <strong>individuelle Gutenberg-Blöcke</strong> implementiert, um redaktionelle Inhalte flexibel und benutzerfreundlich zu gestalten.  
+                    Ziel war es, die Seite wartbarer und die Pflege der Inhalte effizienter zu machen.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Wordpress</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+            </div>
 
-                    <div class="expectation-item">
-                        <div class="expectation-icon">📝</div>
-                        <div class="expectation-content">
-                            <h4>Vertragsbruch</h4>
-                            <p>Plötzliche Änderungen vertraglicher Vereinbarungen ohne Rücksprache und Zustimmung.</p>
-                            <span class="highlight">Deal-Breaker</span>
-                        </div>
-                    </div>
+            <div class="project-card">
+                <h3>Teilprojekt: Individuelles Warenwirtschaftssystem für Automatenaufsteller
+                </h3>
+                <p>
+                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems zur Digitalisierung und Vereinfachung von Bestands- und Logistikprozessen.  
+                    Mein Fokus lag auf der <strong>Backend-Architektur</strong>, der Datenbankmodellierung und der Implementierung einer <strong>performanten, skalierbaren Basis</strong> für die Verwaltung von Produkten, Standorten, Automaten und Lieferungen.  
+                    Das System bildet die Grundlage für ein zentrales, erweiterbares Verwaltungssystem.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Tailwind</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Alpin.js</span>
+                </div>
+            </div>
 
-                    <div class="expectation-item">
-                        <div class="expectation-icon">⚠️</div>
-                        <div class="expectation-content">
-                            <h4>Toxische Arbeitskultur</h4>
-                            <p>Toxische Mitarbeiter oder Führungskräfte. Respektvoller Umgang ist Grundvoraussetzung.
-                            </p>
-                            <span class="highlight">Deal-Breaker</span>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">🔍</div>
-                        <div class="expectation-content">
-                            <h4>Micromanagement</h4>
-                            <p>2x tägliche Kontrolle des Projektfortschritts. Vertrauen statt ständige Überwachung.</p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">🏢</div>
-                        <div class="expectation-content">
-                            <h4>Unnötige Präsenzpflicht</h4>
-                            <p>Verpflichtende Teilnahme an fachfremden Meetings, die nichts mit meiner Arbeit zu tun
-                                haben.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">💬</div>
-                        <div class="expectation-content">
-                            <h4>Meeting-Wahnsinn</h4>
-                            <p>Stundenlange Meetings für Dinge, die in einem 1-minütigen Telefonat geklärt werden
-                                könnten.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="expectation-item">
-                        <div class="expectation-icon">🚭</div>
-                        <div class="expectation-content">
-                            <h4>Rauchen im Büro</h4>
-                            <p>Rauchfreie Arbeitsumgebung ist für mich selbstverständlich und gesundheitlich notwendig.
-                            </p>
-                            <span class="highlight">Deal-Breaker</span>
-                        </div>
-                    </div>
-                    <div class="expectation-item">
-                        <div class="expectation-icon">📱</div>
-                        <div class="expectation-content">
-                            <h4>Kommunikationschaos</h4>
-                            <p>Mehrere parallele Kommunikationskanäle (Slack + Teams + WhatsApp + E-Mail + ...). Ein bis
-                                zwei Tools reichen
-                                völlig.</p>
-                            <span class="highlight">Deal-Breaker</span>
-                        </div>
-                    </div>
-
+            <div class="project-card">
+                <h3>Webanwendung zur Verwaltung und Automatisierung von Geschäftsprozessen</h3>
+                <p>
+                    Entwicklung einer skalierbaren Laravel-Anwendung zur Verwaltung und Zuweisung von Aufträgen in verschiedenen Bereichen.  
+                    Mein Schwerpunkt lag auf der <strong>Backend-Architektur</strong>, der Datenmodellierung sowie der Automatisierung von Geschäftsprozessen.  
+                    Zusätzlich war ich verantwortlich für <strong>Server-Administration</strong>, Plesk-Verwaltung und die Implementierung automatisierter Backup-Strategien.  
+                    Ziel war es, Daten effektiv zu analysieren und zu visualisieren, um Entscheidungsprozesse zu unterstützen.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Laravel</span>
+                    <span class="tech-badge">Livewire</span>
+                    <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">Tailwind</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Tailwind</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Alpin.js</span>
+                    <span class="tech-badge">Plesk</span>
+                    <span class="tech-badge">Ubuntu Server</span>
+                    <span class="tech-badge">BackUp Automatisierung</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+     <!-- Skills Section -->
     <section id="skills">
         <h2>Technologien & Skills</h2>
         <div class="skills-container">
@@ -1170,115 +1089,173 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projekte & Erfahrungen</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Informatik Studium</h3>
-                <p>
-                    Während meines Informatik-Studiums erhielt ich tiefe Einblicke in
-                    objektorientierte
-                    Programmierung
-                    und hardwarenahe Programmierung mit C.
-                    Ich erlernte den Entwurf von Datenbanken inklusive ERM und Normalisierung, entwickelte
-                    Webanwendungen mit Java
-                    (Spring
-                    Boot) und führte automatisierte Tests mit JUnit durch.
-                    Darüber hinaus sammelte ich Erfahrung in Datenanalyse und statistischer Modellierung mit R und
-                    Python sowie in
-                    der
-                    Anwendung mathematischer Konzepte aus Analysis, linearer Algebra und Stochastik.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Java</span>
-                    <span class="tech-badge">Spring Boot</span>
-                    <span class="tech-badge">Datenbank-Entwurf</span>
-                    <span class="tech-badge">C</span>
-                    <span class="tech-badge">R</span>
-                    <span class="tech-badge">JUnit</span>
+    <!-- Expectations Section -->
+    <section id="expectations">
+        <h2>Was ich suche</h2>
+        <p class="section-intro">
+            Transparenz ist mir wichtig. Hier findest du meine Erwartungen und Deal-Breakers –
+            damit wir beide schnell wissen, ob es passt.
+        </p>
+
+        <div class="expectations-container">
+            <!-- Positive Expectations -->
+            <div class="expectation-column positive">
+                <h3>✨ Meine Erwartungen</h3>
+                <div class="expectation-list">
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⚖️</div>
+                        <div class="expectation-content">
+                            <h4>Work-Life-Balance</h4>
+                            <p>Gesunde Balance zwischen Arbeit und Privatleben. Arbeit soll Spaß machen, aber nicht das Leben bestimmen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="expectation-item">
+                        <div class="expectation-icon">🏠</div>
+                        <div class="expectation-content">
+                            <h4>Homeoffice-Möglichkeit</h4>
+                            <p>Mindestens 2 Tage Remote pro Woche. Ich arbeite fokussiert und selbstständig – egal wo.
+                            </p>
+                        </div>
+                    </div> -->
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⭐</div>
+                        <div class="expectation-content">
+                            <h4>Teilzeit / 4-Tage-Woche</h4>
+                            <p>Großer Pluspunkt! 32h/Woche ermöglicht mehr Produktivität und bessere Lebensqualität.
+                            </p>
+                            <span class="highlight">Nice-to-have</span>
+                        </div>
+                    </div>
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⚙️</div>
+                        <div class="expectation-content">
+                            <h4>Struktur & Qualität</h4>
+                            <p>Wichtig sind mir saubere Code-Strukturen, nachvollziehbare Architekturentscheidungen und ein technisches Umfeld, in dem Qualität und Wartbarkeit zählen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="expectation-item">
+                        <div class="expectation-icon">💰</div>
+                        <div class="expectation-content">
+                            <h4>Faire Bezahlung</h4>
+                            <p>Mindestens 20€/h – meine Skills und Erfahrung haben einen Wert.</p>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="expectation-item">
+                        <div class="expectation-icon">🌴</div>
+                        <div class="expectation-content">
+                            <h4>Ausreichend Urlaub</h4>
+                            <p>Minimum 30 Tage bei 5-Tage-Woche. Erholung ist wichtig für nachhaltige Leistung.</p>
+                        </div>
+                    </div> -->
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⏰</div>
+                        <div class="expectation-content">
+                            <h4>Gleitzeit</h4>
+                            <p>Flexible Arbeitszeiten. Ich arbeite am besten, wenn ich meinen Rhythmus selbst bestimmen kann.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">👥</div>
+                        <div class="expectation-content">
+                            <h4>Austausch</h4>
+                            <p>Ich schätze Teams, in denen Wissen geteilt wird, technische Entscheidungen begründet sind und Weiterentwicklung gefördert wird – fachlich wie technologisch.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">☕</div>
+                        <div class="expectation-content">
+                            <h4>Guter Kaffee</h4>
+                            <p>Backend läuft auf Kaffee. Schlechter Kaffee = schlechter Code. Das ist keine Meinung, das ist Physik.
+                            </p>
+                            <span class="highlight">Nice-to-have</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="project-card">
-                <h3>Modernisierung eines Bücher Shop's</h3>
-                <p>
-                    Online-Shop für Bücher – mein erstes Projekt, das ich eigenständig leiten durfte.
-                    Neben der technischen Umsetzung lag mein Fokus auf der Architektur, dem Datenbankentwurf und der
-                    Entwicklung
-                    einer performanten, modularen Anwendung mit Laravel und Livewire.
-                    Das Projekt wurde containerisiert und lokal mit Docker betrieben.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Laravel</span>
-                    <span class="tech-badge">Livewire</span>
-                    <span class="tech-badge">Datenbank-Entwurf</span>
-                    <span class="tech-badge">Docker</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">Alpin.js</span>
-                </div>
-            </div>
+            <!-- Negative Expectations / Deal Breakers -->
+            <div class="expectation-column negative">
+                <h3>🚫 Absolute No-Gos</h3>
+                <div class="expectation-list">
 
-            <div class="project-card">
-                <h3>Moderne Internetpräsenz für ein Eishockey-Team &#129418</h3>
-                <p>
-                    Erweiterung der neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung
-                    von Teams,
-                    Punkteständen und Spielen. Zusätzlich wurden individuelle Gutenberg-Blöcke implementiert, um
-                    redaktionelle Inhalte
-                    flexibel und benutzerfreundlich zu gestalten.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Wordpress</span>
-                    <span class="tech-badge">HTML/CSS</span>
-                    <span class="tech-badge">PHP</span>
-                    <span class="tech-badge">JavaScript</span>
-                </div>
-            </div>
+                    <div class="expectation-item">
+                        <div class="expectation-icon">📝</div>
+                        <div class="expectation-content">
+                            <h4>Vertragsbruch</h4>
+                            <p>Plötzliche Änderungen vertraglicher Vereinbarungen ohne Rücksprache und Zustimmung.</p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
 
-            <div class="project-card">
-                <h3>Umsetzung eines Teilprojektes für ein individuelles Warenwirtschaftssystem für Automatenaufsteller
-                </h3>
-                <p>
-                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems, das Bestands- und Logistikprozesse
-                    digitalisiert und
-                    vereinfacht.
-                    Ziel war eine benutzerfreundliche Verwaltung von Produkten, Standorten, Automaten und Lieferungen.
-                    Das System bildet die Basis für ein zentrales, skalierbares Verwaltungssystem.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Laravel</span>
-                    <span class="tech-badge">Livewire</span>
-                    <span class="tech-badge">Tailwind</span>
-                    <span class="tech-badge">Datenbank-Entwurf</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">Alpin.js</span>
-                </div>
-            </div>
+                    <div class="expectation-item">
+                        <div class="expectation-icon">⚠️</div>
+                        <div class="expectation-content">
+                            <h4>Toxische Arbeitskultur</h4>
+                            <p>Toxische Mitarbeiter oder Führungskräfte. Respektvoller Umgang ist Grundvoraussetzung.
+                            </p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
 
-            <div class="project-card">
-                <h3>Webanwendung zur Verwaltung und Automatisierung von Geschäftsprozessen (aktuell)</h3>
-                <p>
-                    Entwicklung einer skalierbaren Laravel Anwendung zur Verwaltung und Zuweisung von Aufträgen
-                    verschiedener
-                    Bereiche.
-                    Ziel ist die Automatisierung von Geschäftsprozessen und die effektive Analyse und Visualisierung von
-                    Daten, um
-                    Entscheidungsprozesse zu unterstützen. Zusätzlich verantwortlich für Server-Administration,
-                    Plesk-Verwaltung und automatisierte Backup-Strategien.
-                </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Laravel</span>
-                    <span class="tech-badge">Livewire</span>
-                    <span class="tech-badge">Datenbank-Entwurf</span>
-                    <span class="tech-badge">Tailwind</span>
-                    <span class="tech-badge">Docker</span>
-                    <span class="tech-badge">Tailwind</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">Alpin.js</span>
-                    <span class="tech-badge">Plesk</span>
-                    <span class="tech-badge">Ubuntu Server</span>
-                    <span class="tech-badge">BackUp Automatisierung</span>
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🔍</div>
+                        <div class="expectation-content">
+                            <h4>Micromanagement</h4>
+                            <p>2x tägliche Kontrolle des Projektfortschritts. Vertrauen statt ständige Überwachung.</p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="expectation-item">
+                        <div class="expectation-icon">🏢</div>
+                        <div class="expectation-content">
+                            <h4>Unnötige Präsenzpflicht</h4>
+                            <p>Verpflichtende Teilnahme an fachfremden Meetings, die nichts mit meiner Arbeit zu tun haben.
+                            </p>
+                        </div>
+                    </div> -->
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">💬</div>
+                        <div class="expectation-content">
+                            <h4>Meeting-Wahnsinn</h4>
+                            <p>Stundenlange Meetings für Dinge, die in einem 1-minütigen Telefonat geklärt werden könnten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="expectation-item">
+                        <div class="expectation-icon">🚭</div>
+                        <div class="expectation-content">
+                            <h4>Rauchen im Büro</h4>
+                            <p>Rauchfreie Arbeitsumgebung ist für mich selbstverständlich und gesundheitlich notwendig.
+                            </p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
+                    <div class="expectation-item">
+                        <div class="expectation-icon">📱</div>
+                        <div class="expectation-content">
+                            <h4>Kommunikationschaos</h4>
+                            <p>Mehrere parallele Kommunikationskanäle (Slack + Teams + WhatsApp + E-Mail + ...). Ein bis zwei Tools reichen völlig.
+                            </p>
+                            <span class="highlight">Deal-Breaker</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
