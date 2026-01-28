@@ -670,6 +670,23 @@
             margin-bottom: 1.5rem;
         }
 
+        .project-card ul {
+            list-style: none;
+            padding-left: 0;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+
+            li {
+                display: flex;
+                gap: 0.5em;
+            }
+
+            li::before {
+                content: "•";
+            }
+        }
+
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -941,18 +958,25 @@
         <div class="projects-grid">
         
             <div class="project-card">
-                <h3>Neubau eines Bücher Shop's</h3>
+                <h3>Modernisierung eines Online-Buchshop</h3>
                 <p>
-                    Eigenständig geleitetes Projekt zur Modernisierung eines bestehenden Online-Shops für Bücher.  
-                    Mein Fokus lag auf <strong>Architektur</strong>, <strong>Datenbankdesign</strong> und der Entwicklung einer <strong>performanten, modularen Backend-Logik</strong> mit Laravel und Livewire.  
-                    Die Anwendung wurde containerisiert und lokal mit Docker betrieben, um eine stabile und wartbare Entwicklungsumgebung zu gewährleisten.
+                    Vollständige Neuentwicklung eines bestehenden Online-Shops mit Fokus auf Wartbarkeit und Performance.
                 </p>
+                <ul>
+                    <li>Eigenständige Projektleitung und technische Umsetzung</li>
+                    <li>Datenbankdesign und modulare Backend-Struktur</li>
+                    <li>Containerisierte Entwicklungsumgebung mit Docker</li>
+                    <li>Entwicklung einer neuen responsive Benutzeroberfläche mit Bootstrap</li>
+                </ul>
                 <div class="tech-stack">
+                    <span class="tech-badge">PHP</span>
                     <span class="tech-badge">Laravel</span>
                     <span class="tech-badge">Livewire</span>
                     <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">SQL</span>
                     <span class="tech-badge">Docker</span>
                     <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Bootstrap</span>
                     <span class="tech-badge">Alpin.js</span>
                 </div>
             </div>
@@ -960,14 +984,18 @@
             <div class="project-card">
                 <h3>Moderne Internetpräsenz für ein Eishockey-Team &#129418</h3>
                 <p>
-                    Erweiterung einer neu gestalteten WordPress-Seite durch ein selbst entwickeltes Plugin zur Verwaltung von Teams, Punkteständen und Spielen.  
-                    Ich habe zudem <strong>individuelle Gutenberg-Blöcke</strong> implementiert, um redaktionelle Inhalte flexibel und benutzerfreundlich zu gestalten.  
-                    Ziel war es, die Seite wartbarer und die Pflege der Inhalte effizienter zu machen.
+                    Erstellung einer WordPress-Seite durch individuelle Funktionen zur redaktionellen Pflege.
                 </p>
+                <ul>
+                    <li>Datenmodellierung und Speicherung der Inhalte in der WordPress-Datenbank</li>
+                    <li>Umsetzung individueller Gutenberg-Blöcke inkl. Frontend-Logik</li>
+                    <li>Anpassung von Layout, Styles und Benutzerführung</li>
+                </ul>
                 <div class="tech-stack">
                     <span class="tech-badge">Wordpress</span>
                     <span class="tech-badge">HTML/CSS</span>
                     <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">SQL</span>
                     <span class="tech-badge">JavaScript</span>
                 </div>
             </div>
@@ -976,15 +1004,20 @@
                 <h3>Teilprojekt: Individuelles Warenwirtschaftssystem für Automatenaufsteller
                 </h3>
                 <p>
-                    Entwicklung der Grundstruktur eines Warenwirtschaftssystems zur Digitalisierung und Vereinfachung von Bestands- und Logistikprozessen.  
-                    Mein Fokus lag auf der <strong>Backend-Architektur</strong>, der Datenbankmodellierung und der Implementierung einer <strong>performanten, skalierbaren Basis</strong> für die Verwaltung von Produkten, Standorten, Automaten und Lieferungen.  
-                    Das System bildet die Grundlage für ein zentrales, erweiterbares Verwaltungssystem.
+                    Webbasierte Anwendung zur Digitalisierung von Bestands-, Standort- und Logistikprozessen.
                 </p>
+                <ul>
+                    <li>Konzeption der Backend-Architektur und des Datenbankmodells</li>
+                    <li>Implementierung zentraler Geschäftslogik mit Laravel & Livewire</li>
+                    <li>Grundlage für ein skalierbares, erweiterbares Verwaltungssystem</li>
+                </ul>
                 <div class="tech-stack">
+                    <span class="tech-badge">PHP</span>
                     <span class="tech-badge">Laravel</span>
                     <span class="tech-badge">Livewire</span>
                     <span class="tech-badge">Tailwind</span>
                     <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">SQL</span>
                     <span class="tech-badge">JavaScript</span>
                     <span class="tech-badge">Alpin.js</span>
                 </div>
@@ -993,15 +1026,23 @@
             <div class="project-card">
                 <h3>Webanwendung zur Verwaltung und Automatisierung von Geschäftsprozessen</h3>
                 <p>
-                    Entwicklung einer skalierbaren Laravel-Anwendung zur Verwaltung und Zuweisung von Aufträgen in verschiedenen Bereichen.  
-                    Mein Schwerpunkt lag auf der <strong>Backend-Architektur</strong>, der Datenmodellierung sowie der Automatisierung von Geschäftsprozessen.  
-                    Zusätzlich war ich verantwortlich für <strong>Server-Administration</strong>, Plesk-Verwaltung und die Implementierung automatisierter Backup-Strategien.  
-                    Ziel war es, Daten effektiv zu analysieren und zu visualisieren, um Entscheidungsprozesse zu unterstützen.
+                    Skalierbare Laravel-Anwendung zur Verwaltung und Zuweisung von Aufträgen sowie zur Analyse betrieblicher Daten.
                 </p>
+                <ul>
+                    <li>Konzeption und Umsetzung der Backend-Architektur inkl. Geschäftslogik und Datenmodell</li>
+                    <li>Automatisierung zentraler Geschäftsprozesse (Status-Workflows, Auftragszuweisung)</li>
+                    <li>Umsetzung der Benutzeroberfläche mit JavaScript und Tailwind</li>
+                    <li>Containerisierte Entwicklungsumgebung mit Docker</li>
+                    <li>Server-Administration inkl. Deployment, Plesk-Verwaltung und automatisierter Backup-Strategien</li>
+                    <li>Implementierung von Auswertungen und Datenvisualisierungen zur Entscheidungsunterstützung</li>
+    
+                </ul>
                 <div class="tech-stack">
+                    <span class="tech-badge">PHP</span>
                     <span class="tech-badge">Laravel</span>
                     <span class="tech-badge">Livewire</span>
                     <span class="tech-badge">Datenbank-Entwurf</span>
+                    <span class="tech-badge">SQL</span>
                     <span class="tech-badge">Tailwind</span>
                     <span class="tech-badge">Docker</span>
                     <span class="tech-badge">Tailwind</span>
@@ -1028,7 +1069,7 @@
                     <span class="skill-tag">R</span>
                     <span class="skill-tag">Spring Boot</span>
                     <span class="skill-tag primary">Tell, don't ask</span>
-                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag primary">REST APIs</span>
                     <span class="skill-tag">SOLID</span>
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag primary">Law of Demeter</span>
@@ -1037,8 +1078,7 @@
                     <span class="skill-tag">C</span>
                     <span class="skill-tag">Composer</span>
                     <span class="skill-tag primary">DRY</span>
-                    <span class="skill-tag primary">KISS</span>
-
+                    <span class="skill-tag primary">KISS</span>                
                 </div>
             </div>
 
@@ -1060,28 +1100,33 @@
                 <div class="skill-tags">
                     <span class="skill-tag primary">Docker</span>
                     <span class="skill-tag primary">Git</span>
-                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag primary">Linux</span>
                     <span class="skill-tag">Nginx</span>
                     <span class="skill-tag">Ubuntu Server</span>
+                    <span class="skill-tag primary">GitHub</span>
                     <span class="skill-tag primary">Plesk-Administration</span>
+                    <span class="skill-tag">GitLab</span>
                     <span class="skill-tag primary">BackUp Automatisierung</span>
                     <span class="skill-tag primary">macOS</span>
                     <span class="skill-tag">Wordpress</span>
                     <span class="skill-tag primary">phpMyAdmin</span>
                     <span class="skill-tag primary">Postman</span>
                     <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Slack</span>
+                    <span class="skill-tag">ChatGPT</span>                   
                 </div>
             </div>
 
             <div class="skill-category">
                 <h3>Frontend (Solid)</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag primary">HTML/CSS</span>
-                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag primary">HTML</span>
+                    <span class="skill-tag primary">CSS/SCSS</span>
+                    <span class="skill-tag primary">JavaScript</span>
                     <span class="skill-tag">Alpin.js</span>
                     <span class="skill-tag primary">Tailwind</span>
-                    <span class="skill-tag">jQuery</span>
-                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag primary">jQuery</span>
+                    <span class="skill-tag primary">Bootstrap</span>
                     <span class="skill-tag primary">Responsive Design</span>
 
                 </div>
